@@ -12,11 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-MAINTAINER Dockerfiles
+#Stop installation of tzdata from stalling package build
+#See https://techoverflow.net/2019/05/18/how-to-fix-configuring-tzdata-interactive-input-when-building-docker-images/
 
+ENV DEBIAN_FRONTEND=noninteractive
 # Install required packages and remove the apt packages cache when done.
+
 
 RUN apt-get update && \
     apt-get upgrade -y && \ 	
@@ -28,7 +31,7 @@ RUN apt-get update && \
 	python3-pip \
 	nginx \
 	supervisor \
-	sqlite3 && \
+	postgresql && \
 	pip3 install -U pip setuptools && \
    rm -rf /var/lib/apt/lists/*
 
