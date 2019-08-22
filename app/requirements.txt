@@ -1,1 +1,16 @@
-django
+-i https://pypi.org/simple
+certifi==2019.6.16
+chardet==3.0.4
+django-environ==0.4.5
+django-extensions==2.2.1
+django-js-asset==1.2.2
+django-mptt==0.9.0
+django==1.8.19
+https://github.com/ome/zeroc-ice-ubuntu1804/releases/download/0.1.0/zeroc_ice-3.6.4-cp27-cp27mu-linux_x86_64.whl#egg=zeroc-ice
+idna==2.8
+lorem==0.1.1
+psycopg2-binary==2.8.3
+requests==2.22.0
+six==1.12.0
+typing==3.7.4 ; python_version < '3.5'
+urllib3==1.25.3

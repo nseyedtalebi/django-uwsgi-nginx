@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  django-nginx:
+    container_name: django-nginx
+    build: 
+      context: .
+    image: django-nginx
+    depends_on:
+      - learnpath_postgres
+    networks:
+      - django_backend-net
+    ports:
+      - 8080:80
+    env_file:
+      - ./env/django.env
+  learnpath_postgres:
+    container_name: learnpath_postgres
+    build:
+      context: ./postgres_img
+    networks:
+      - django_backend-net
+    env_file:
+      - ./env/postgres.env
+networks:
+  django_backend-net:
+    name: django_backend-net
